@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九乐科技影视</title>
+
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            background: #f2f2f2;
+            height: 100%;
+
+            display: flex;
+            flex-direction: column;
+        }
+        .top {
+            /* background: rgb(255, 77, 75); */
+            background: linear-gradient(to left, red, rgb(69, 69, 134));
+            padding: .5em;
+            display: flex;
+            justify-content: space-around;
+        }
+        .title {
+            margin: 0;
+            color: rgb(159, 232, 40);
+            display: block;
+        }
+        .input {
+            display: block;
+            /* float: right; */
+            padding-top: .2em;
+        }
+
+        input {
+            padding: 0;
+            padding-left: .5em;
+            width: 12em;
+            height: 2em;
+            border: 1px solid #ffbfbf;
+            /* border-radius: 2px; */
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            box-shadow: -2px 1px 2px #9a5c5c; 
+        }
+        button {
+            height: 2.168em;
+            background: #ace650;
+            border: 1px solid #ffbfbf;
+            border-top-right-radius: 2px;
+            border-bottom-right-radius: 2px;
+            color: #000;
+            margin-left: -.6em;
+            vertical-align: bottom;
+            /* border: none; */
+            box-shadow: 2px 1px 2px #9a5c5c; 
+        }
+
+        iframe {
+            /* width: 100%; */
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="top">
+        <h3 class="title">九乐科技影视</h3>
+
+        <div class="input">
+            <input onkeydown="onkey()" type="text" placeholder="输入视频地址、名称">
+            <button onclick="play()">播放</button>
+        </div>
+    </div>
+
+    <iframe src="https://z1.m1907.cn" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+    <script>
+        function play() {
+            let name = document.getElementsByTagName('input')[0].value
+            let ifr = document.getElementsByTagName("iframe")[0]
+            // console.log(name);
+            ifr.src = `https://z1.m1907.cn/?jx=${name}`
+        }
+
+        function onkey() {
+            if (event.which === 13 ) {
+                play()
+            }
+        }
+    </script>
+</body>
+</html>
